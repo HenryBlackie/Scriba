@@ -3,6 +3,7 @@ __author__ = "Henry Blackie"
 __copyright__ = "Copyright (C) 2017 Henry Blackie"
 __license__ = "MIT Licence"
 __version__ = "0.1"
+EXTENSION = ".scrb"
 
 def mainMenu(menuSelection):
     menu = {}
@@ -35,7 +36,7 @@ def openNote():
     caseName = raw_input("Case Name >> ")
 
     # open file with case name
-    textFile = open(caseName, 'r')
+    textFile = open(caseName + EXTENSION, 'r')
 
     # print contents of text file
     for line in textFile:
@@ -50,7 +51,9 @@ def readNote():
     caseName = raw_input("Case name >> ")
 
     # open file with case name
-    textFile = open(caseName, 'r')
+    textFile = open(caseName + EXTENSION, 'r')
+
+    print("\n*** START OF CASE NOTE ***\n")
 
     # print contents of text file
     for line in textFile:
@@ -58,13 +61,13 @@ def readNote():
 
     textFile.close()
 
-    print("\n*** END OF CASE NOTE ***\n")
+    print("*** END OF CASE NOTE ***\n")
 
 def noteTaking(caseName):
     import time # used for getting date/time
     entry = ""
 
-    textFile = open(caseName, 'a')
+    textFile = open(caseName + EXTENSION, 'a')
 
     print("Enter 'EXIT' to stop")
     
@@ -77,7 +80,6 @@ def noteTaking(caseName):
     textFile.close()
     
 def main():
-
     menuSelection = 0
 
     while int(menuSelection) != 99:
